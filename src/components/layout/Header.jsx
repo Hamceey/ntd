@@ -35,7 +35,7 @@ const Header = () => {
   return (
     <motion.header
        className="fixed w-full  z-40 bg-white shadow-lg py-4"
-       style={{ top: '100px' }}
+       style={{ top: '0px' }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
     >

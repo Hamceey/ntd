@@ -1,5 +1,5 @@
 import React from 'react';
-import PromoBar from './components/layout/PromoBar';
+// import PromoBar from './components/layout/PromoBar';
 import Header from './components/layout/Header';
 import Hero from './components/sections/Hero';
 import Services from './components/sections/Services';
@@ -23,7 +23,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <PromoBar />
+{/*       <PromoBar /> */}
       <Header />
       <Hero />
       <Services />
