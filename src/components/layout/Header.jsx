@@ -108,25 +108,25 @@ const Header = () => {
                 Services
               </button>
               <button
-                onClick={() => scrollToSection('portfolio')}
-                className="text-accent-black hover:text-data-flow-cyan transition text-left"
-              >
-                Portfolio
-              </button>
-              <button
                 onClick={() => scrollToSection('pricing')}
                 className="text-accent-black hover:text-data-flow-cyan transition text-left"
               >
-                Pricing
+                pricing
               </button>
               <button
-                onClick={() => scrollToSection('testimonials')}
+                onClick={() => scrollToSection('benefits')}
                 className="text-accent-black hover:text-data-flow-cyan transition text-left"
               >
-                Testimonials
+                benefits
               </button>
+{/*               <button */}
+{/*                 onClick={() => scrollToSection('testimonials')} */}
+{/*                 className="text-accent-black hover:text-data-flow-cyan transition text-left" */}
+{/*               > */}
+{/*                 Testimonials */}
+{/*               </button> */}
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('pricing')}
                 className="bg-quantum-gold text-white px-6 py-3 rounded-lg font-semibold text-left"
               >
                 Get Started
