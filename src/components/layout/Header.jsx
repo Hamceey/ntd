@@ -24,11 +24,20 @@ const scrollToSection = (sectionId) => {
     // Get the header height
     const headerHeight = headerRef.current ? headerRef.current.offsetHeight : 0;
 
+    // Add a small buffer (adjust this value as needed - try 10, 20, or 30)
+    const buffer = 20;
+
     // Get the section's position relative to the document
     const sectionTop = section.offsetTop;
 
-    // Calculate scroll position (section position minus header height)
-    const scrollPosition = sectionTop - headerHeight;
+    // Calculate scroll position with buffer
+    const scrollPosition = sectionTop - headerHeight - buffer;
+
+    // Debug logs (remove these after fixing)
+    console.log('Section:', sectionId);
+    console.log('Header height:', headerHeight);
+    console.log('Section top:', sectionTop);
+    console.log('Scroll to:', scrollPosition);
 
     window.scrollTo({
       top: scrollPosition,
@@ -36,7 +45,6 @@ const scrollToSection = (sectionId) => {
     });
   }
 
-  // Close mobile menu after scrolling starts
   setTimeout(() => {
     setIsMobileMenuOpen(false);
   }, 300);
