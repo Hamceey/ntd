@@ -58,12 +58,12 @@ const Hero = () => {
 
         {/* Floating Elements */}
         <motion.div
-          className="absolute top-20 left-10 w-20 h-20 bg-quantum-gold rounded-full opacity-20 blur-xl"
+          className="absolute top-20 left-10 w-20 h-20 bg-quantum-gold rounded-full opacity-20 blur-xl z-0"
           animate={{ y: [0, 30, 0], x: [0, 20, 0] }}
           transition={{ duration: 6, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-40 right-20 w-32 h-32 bg-data-flow-cyan rounded-full opacity-20 blur-xl"
+          className="absolute bottom-40 right-20 w-32 h-32 bg-data-flow-cyan rounded-full opacity-20 blur-xl z-0"
           animate={{ y: [0, -30, 0], x: [0, -20, 0] }}
           transition={{ duration: 8, repeat: Infinity }}
         />
