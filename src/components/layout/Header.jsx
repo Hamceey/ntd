@@ -19,22 +19,24 @@ const Header = () => {
   // Scroll to section function
 const scrollToSection = (sectionId) => {
   const section = document.getElementById(sectionId);
-  let headerHeight = 0;
-    if (headerRef.current) {
-      headerHeight = headerRef.current.offsetHeight; // Get the computed height
-    }
+
   if (section) {
-      const elementPosition = section.getBoundingClientRect().top;
-      // Use the dynamically calculated height for the offset
-      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+    // Get the header height
+    const headerHeight = headerRef.current ? headerRef.current.offsetHeight : 0;
+
+    // Get the section's position relative to the document
+    const sectionTop = section.offsetTop;
+
+    // Calculate scroll position (section position minus header height)
+    const scrollPosition = sectionTop - headerHeight;
 
     window.scrollTo({
-      top: offsetPosition,
+      top: scrollPosition,
       behavior: 'smooth'
     });
   }
-  // Close mobile menu AFTER a short delay to allow the scroll/transition to start
-  // 150ms is usually a good buffer.
+
+  // Close mobile menu after scrolling starts
   setTimeout(() => {
     setIsMobileMenuOpen(false);
   }, 300);
