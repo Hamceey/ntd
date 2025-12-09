@@ -46,7 +46,7 @@ const Header = () => {
           className="text-2xl font-black font-montserrat text-deep-tide-blue cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          NEURON<span className="text-data-flow-cyan">TIDE</span>
+          NEURON<span className="text-data-flow-cyan">TIDEs</span>
         </div>
 
         {/* Desktop Menu */}
