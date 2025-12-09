@@ -16,21 +16,24 @@ const Header = () => {
   }, []);
 
   // Scroll to section function
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      const headerHeight = 80; // Adjust based on your header height
-      const elementPosition = section.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+const scrollToSection = (sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    const headerHeight = 80; // Adjust based on your header height
+    const elementPosition = section.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-    // Close mobile menu if open
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+  // Close mobile menu AFTER a short delay to allow the scroll/transition to start
+  // 150ms is usually a good buffer.
+  setTimeout(() => {
     setIsMobileMenuOpen(false);
-  };
+  }, 150);
+};
 
   return (
   <>
