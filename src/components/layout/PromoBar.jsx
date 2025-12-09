@@ -91,8 +91,7 @@ const PromoPopup = () => {
   animate={{ scale: 1, opacity: 1, y: 0 }}
   exit={{ scale: 0.8, opacity: 0, y: -50 }}
   transition={{ type: "spring", stiffness: 300, damping: 30 }}
-  className="fixed top-[15%] left-1/2 -translate-x-1/2 z-[60] w-[95%] max-w-2xl"
-  style={{ transform: 'translateX(-50%)' }}
+  className="fixed top-[10%] sm:top-[15%] left-1/2 -translate-x-1/2 z-[60] w-[90%] sm:w-[85%] md:w-[75%] max-w-2xl max-h-[85vh] overflow-y-auto"
 >
             <div className="relative bg-gradient-to-br from-deep-tide-blue via-data-flow-cyan to-deep-tide-blue rounded-2xl shadow-2xl overflow-hidden">
               {/* Background pattern */}
