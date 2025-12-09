@@ -98,6 +98,11 @@ const Footer = () => {
                   Testimonials <span className="text-sm text-white/50 ml-1">(Coming Soon)</span>
                 </a>
               </li>
+              <li>
+                <a href="javascript:void(0)" className="hover:text-quantum-gold transition">
+                  Blog <span className="text-sm text-white/50 ml-1">(Coming Soon)</span>
+                </a>
+              </li>
               <li><a href="#contact" className="hover:text-quantum-gold transition">Contact</a></li>
             </ul>
           </div>

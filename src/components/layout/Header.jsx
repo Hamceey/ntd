@@ -40,12 +40,9 @@ const scrollToSection = (sectionId) => {
 
   return (
   <>
-    <motion.header
-    ref={headerRef}
-      className="fixed w-full  z-40 bg-white shadow-lg py-4"
-      style={{ top: '0px' }}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+        <header
+      ref={headerRef}
+      className="fixed w-full top-0 z-40 bg-white shadow-lg py-4"
     >
       <nav className="max-w-7xl mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
@@ -94,7 +91,7 @@ const scrollToSection = (sectionId) => {
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </nav>
-    </motion.header>
+    </header>
 
     {/* Mobile Menu must be outside the header */}
     <AnimatePresence>
