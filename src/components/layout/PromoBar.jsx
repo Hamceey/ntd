@@ -73,26 +73,28 @@ const PromoPopup = () => {
   };
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
-          />
+  <AnimatePresence>
+    {isOpen && (
+      <>
+        {/* Backdrop */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+        />
 
-         {/* Popup Modal */}
-<motion.div
-  initial={{ scale: 0.8, opacity: 0, y: -50 }}
-  animate={{ scale: 1, opacity: 1, y: 0 }}
-  exit={{ scale: 0.8, opacity: 0, y: -50 }}
-  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-  className="fixed top-[10%] sm:top-[15%] left-1/2 -translate-x-1/2 z-[60] w-[90%] sm:w-[85%] md:w-[75%] max-w-2xl max-h-[85vh] overflow-y-auto"
->
+        {/* Popup Modal - Positioning Wrapper */}
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+          {/* Animation Wrapper */}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="w-full max-w-2xl max-h-[90vh] overflow-y-auto"
+          >
             <div className="relative bg-gradient-to-br from-deep-tide-blue via-data-flow-cyan to-deep-tide-blue rounded-2xl shadow-2xl overflow-hidden">
               {/* Background pattern */}
               <div className="absolute inset-0 opacity-10">
@@ -170,10 +172,11 @@ const PromoPopup = () => {
               </div>
             </div>
           </motion.div>
-        </>
-      )}
-    </AnimatePresence>
-  );
+        </div>
+      </>
+    )}
+  </AnimatePresence>
+);
 };
 
 export default PromoPopup;
