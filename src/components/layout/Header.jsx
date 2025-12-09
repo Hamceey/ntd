@@ -46,7 +46,7 @@ const Header = () => {
           className="text-2xl font-black font-montserrat text-deep-tide-blue cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          NEURON<span className="text-data-flow-cyan">TIDEs</span>
+          NEURON<span className="text-data-flow-cyan">TIDE</span>
         </div>
 
         {/* Desktop Menu */}
@@ -80,6 +80,7 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
+        type="button"
           className="md:hidden text-deep-tide-blue"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -99,6 +100,7 @@ const Header = () => {
         >
           <div className="flex flex-col gap-4 p-6">
             <button
+            type="button"
               onClick={() => scrollToSection('services')}
               className="text-left"
             >
@@ -106,6 +108,7 @@ const Header = () => {
             </button>
 
             <button
+            type="button"
               onClick={() => scrollToSection('pricing')}
               className="text-left"
             >
@@ -113,6 +116,7 @@ const Header = () => {
             </button>
 
             <button
+            type="button"
               onClick={() => scrollToSection('benefits')}
               className="text-left"
             >
@@ -120,7 +124,8 @@ const Header = () => {
             </button>
 
             <button
-              onClick={() => scrollToSection('pricing')}
+            type="button"
+              onClick={() => scrollToSection('contact')}
               className="bg-quantum-gold text-white px-6 py-3 rounded-lg text-left"
             >
               Get Started
