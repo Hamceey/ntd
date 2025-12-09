@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, UseRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Menu } from 'lucide-react';
 
@@ -6,6 +6,7 @@ import { X, Menu } from 'lucide-react';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,10 +19,14 @@ const Header = () => {
   // Scroll to section function
 const scrollToSection = (sectionId) => {
   const section = document.getElementById(sectionId);
+  let headerHeight = 0;
+    if (headerRef.current) {
+      headerHeight = headerRef.current.offsetHeight; // Get the computed height
+    }
   if (section) {
-    const headerHeight = 80; // Adjust based on your header height
-    const elementPosition = section.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+      const elementPosition = section.getBoundingClientRect().top;
+      // Use the dynamically calculated height for the offset
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
     window.scrollTo({
       top: offsetPosition,
@@ -32,12 +37,13 @@ const scrollToSection = (sectionId) => {
   // 150ms is usually a good buffer.
   setTimeout(() => {
     setIsMobileMenuOpen(false);
-  }, 500);
+  }, 250);
 };
 
   return (
   <>
     <motion.header
+    ref={headerRef}
       className="fixed w-full  z-40 bg-white shadow-lg py-4"
       style={{ top: '0px' }}
       initial={{ y: -100 }}
