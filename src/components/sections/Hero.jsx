@@ -48,7 +48,7 @@ const Hero = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button  onClick={() => scrollToSection('contact')} className="bg-quantum-gold text-white px-8 py-4 rounded-lg font-semibold text-lg hover:scale-105 transition flex items-center justify-center gap-2">
-              Start Your Project <ArrowRight size={20} />
+              Start Your Project <ArrowRight size={20} className="pointer-events-none"/>
             </button>
             <button  onClick={() => scrollToSection('services')} className="bg-white text-deep-tide-blue px-8 py-4 rounded-lg font-semibold text-lg hover:scale-105 transition">
               View Our Services
