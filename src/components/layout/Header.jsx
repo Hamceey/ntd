@@ -38,13 +38,13 @@ const scrollToSection = (sectionId) => {
   }, 100); // Wait 100ms for menu to close
 };
 
-  return (
+ return (
   <>
-        <header
+    <header
       ref={headerRef}
-      className="fixed w-full top-0 z-40 bg-white shadow-lg py-4"
+      className="fixed w-full top-0 z-40 bg-white shadow-lg"
     >
-      <nav className="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <nav className="py-4 max-w-7xl mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <div
           className="text-2xl font-black font-montserrat text-deep-tide-blue cursor-pointer"
@@ -84,63 +84,62 @@ const scrollToSection = (sectionId) => {
 
         {/* Mobile Menu Button */}
         <button
-        type="button"
+          type="button"
           className="md:hidden text-deep-tide-blue"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </nav>
+
+      {/* Mobile Menu - Now INSIDE header */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white border-t w-full overflow-hidden"
+          >
+            <div className="flex flex-col gap-4 p-6">
+              <button
+                type="button"
+                onClick={() => scrollToSection('services')}
+                className="text-left"
+              >
+                Services
+              </button>
+
+              <button
+                type="button"
+                onClick={() => scrollToSection('pricing')}
+                className="text-left"
+              >
+                Pricing
+              </button>
+
+              <button
+                type="button"
+                onClick={() => scrollToSection('benefits')}
+                className="text-left"
+              >
+                Benefits
+              </button>
+
+              <button
+                type="button"
+                onClick={() => scrollToSection('contact')}
+                className="bg-quantum-gold text-white px-6 py-3 rounded-lg text-left"
+              >
+                Get Started
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
-
-    {/* Mobile Menu must be outside the header */}
-    <AnimatePresence>
-      {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-white border-t fixed w-full top-[80px] z-30"
-        >
-          <div className="flex flex-col gap-4 p-6">
-            <button
-            type="button"
-              onClick={() => scrollToSection('services')}
-              className="text-left"
-            >
-              Services
-            </button>
-
-            <button
-            type="button"
-              onClick={() => scrollToSection('pricing')}
-              className="text-left"
-            >
-              Pricing
-            </button>
-
-            <button
-            type="button"
-              onClick={() => scrollToSection('benefits')}
-              className="text-left"
-            >
-              Benefits
-            </button>
-
-            <button
-            type="button"
-              onClick={() => scrollToSection('contact')}
-              className="bg-quantum-gold text-white px-6 py-3 rounded-lg text-left"
-            >
-              Get Started
-            </button>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
   </>
 );
 };
-
 
 export default Header;
