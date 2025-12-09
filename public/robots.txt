@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Prevent indexing of build tools or hidden routes (optional, safe defaults)
+Disallow: /admin
+Disallow: /api
+
+Sitemap: https://neurontide.co.ke/sitemap.xml
