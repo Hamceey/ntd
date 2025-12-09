@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Menu } from 'lucide-react';
 
-
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,7 +18,7 @@ const Header = () => {
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      const headerHeight = 80; // Adjust based on your header height
+      const headerHeight = 144; // 72px promo bar + 72px header = 144px total
       const elementPosition = section.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
@@ -33,10 +32,10 @@ const Header = () => {
   };
 
   return (
-  <>
     <motion.header
-      className="fixed w-full  z-40 bg-white shadow-lg py-4"
-      style={{ top: '0px' }}
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white shadow-lg py-4' : 'bg-transparent py-6'
+      }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
     >
@@ -46,7 +45,7 @@ const Header = () => {
           className="text-2xl font-black font-montserrat text-deep-tide-blue cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          NEURON<span className="text-data-flow-cyan">TIDEs</span>
+          NEURON<span className="text-data-flow-cyan">TIDE</span>
         </div>
 
         {/* Desktop Menu */}
@@ -57,7 +56,12 @@ const Header = () => {
           >
             Services
           </button>
-
+          <button
+            onClick={() => scrollToSection('portfolio')}
+            className="text-accent-black hover:text-data-flow-cyan transition"
+          >
+            Portfolio
+          </button>
           <button
             onClick={() => scrollToSection('pricing')}
             className="text-accent-black hover:text-data-flow-cyan transition"
@@ -65,10 +69,10 @@ const Header = () => {
             Pricing
           </button>
           <button
-            onClick={() => scrollToSection('benefits')}
+            onClick={() => scrollToSection('testimonials')}
             className="text-accent-black hover:text-data-flow-cyan transition"
           >
-            Benefits
+            Testimonials
           </button>
           <button
             onClick={() => scrollToSection('contact')}
@@ -86,52 +90,53 @@ const Header = () => {
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white border-t"
+          >
+            <div className="flex flex-col gap-4 p-6">
+              <button
+                onClick={() => scrollToSection('services')}
+                className="text-accent-black hover:text-data-flow-cyan transition text-left"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => scrollToSection('portfolio')}
+                className="text-accent-black hover:text-data-flow-cyan transition text-left"
+              >
+                Portfolio
+              </button>
+              <button
+                onClick={() => scrollToSection('pricing')}
+                className="text-accent-black hover:text-data-flow-cyan transition text-left"
+              >
+                Pricing
+              </button>
+              <button
+                onClick={() => scrollToSection('testimonials')}
+                className="text-accent-black hover:text-data-flow-cyan transition text-left"
+              >
+                Testimonials
+              </button>
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="bg-quantum-gold text-white px-6 py-3 rounded-lg font-semibold text-left"
+              >
+                Get Started
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
-
-    {/* Mobile Menu must be outside the header */}
-    <AnimatePresence>
-      {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-white border-t fixed w-full top-16 z-30"
-        >
-          <div className="flex flex-col gap-4 p-6">
-            <button
-              onClick={() => scrollToSection('services')}
-              className="text-left"
-            >
-              Services
-            </button>
-
-            <button
-              onClick={() => scrollToSection('pricing')}
-              className="text-left"
-            >
-              Pricing
-            </button>
-
-            <button
-              onClick={() => scrollToSection('benefits')}
-              className="text-left"
-            >
-              Benefits
-            </button>
-
-            <button
-              onClick={() => scrollToSection('pricing')}
-              className="bg-quantum-gold text-white px-6 py-3 rounded-lg text-left"
-            >
-              Get Started
-            </button>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  </>
-);
+  );
 };
-
 
 export default Header;
