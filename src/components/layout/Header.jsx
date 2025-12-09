@@ -96,7 +96,7 @@ const Header = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-white border-t fixed w-full top-16 z-30"
+          className="md:hidden bg-white border-t fixed w-full top-[80px] z-30"
         >
           <div className="flex flex-col gap-4 p-6">
             <button
