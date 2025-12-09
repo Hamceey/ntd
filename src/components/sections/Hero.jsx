@@ -46,7 +46,7 @@ const Hero = () => {
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/90">
             Transform your vision into digital reality with seamless design, development, and AI automation
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center  relative z-20">
             <button  onClick={() => scrollToSection('contact')} className="bg-quantum-gold text-white px-8 py-4 rounded-lg font-semibold text-lg hover:scale-105 transition flex items-center justify-center gap-2">
               Start Your Project <ArrowRight size={20} className="pointer-events-none"/>
             </button>
