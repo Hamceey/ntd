@@ -32,7 +32,7 @@ const scrollToSection = (sectionId) => {
   // 150ms is usually a good buffer.
   setTimeout(() => {
     setIsMobileMenuOpen(false);
-  }, 150);
+  }, 500);
 };
 
   return (
