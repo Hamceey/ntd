@@ -33,9 +33,10 @@ const Header = () => {
   };
 
   return (
+  <>
     <motion.header
-       className="fixed w-full  z-40 bg-white shadow-lg py-4"
-       style={{ top: '0px' }}
+      className="fixed w-full  z-40 bg-white shadow-lg py-4"
+      style={{ top: '0px' }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
     >
@@ -56,12 +57,7 @@ const Header = () => {
           >
             Services
           </button>
-{/*           <button */}
-{/*             onClick={() => scrollToSection('portfolio')} */}
-{/*             className="text-accent-black hover:text-data-flow-cyan transition" */}
-{/*           > */}
-{/*             Portfolio */}
-{/*           </button> */}
+
           <button
             onClick={() => scrollToSection('pricing')}
             className="text-accent-black hover:text-data-flow-cyan transition"
@@ -90,53 +86,52 @@ const Header = () => {
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </nav>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t"
-          >
-            <div className="flex flex-col gap-4 p-6">
-              <button
-                onClick={() => scrollToSection('services')}
-                className="text-accent-black hover:text-data-flow-cyan transition text-left"
-              >
-                Services
-              </button>
-              <button
-                onClick={() => scrollToSection('pricing')}
-                className="text-accent-black hover:text-data-flow-cyan transition text-left"
-              >
-                pricing
-              </button>
-              <button
-                onClick={() => scrollToSection('benefits')}
-                className="text-accent-black hover:text-data-flow-cyan transition text-left"
-              >
-                benefits
-              </button>
-{/*               <button */}
-{/*                 onClick={() => scrollToSection('testimonials')} */}
-{/*                 className="text-accent-black hover:text-data-flow-cyan transition text-left" */}
-{/*               > */}
-{/*                 Testimonials */}
-{/*               </button> */}
-              <button
-                onClick={() => scrollToSection('pricing')}
-                className="bg-quantum-gold text-white px-6 py-3 rounded-lg font-semibold text-left"
-              >
-                Get Started
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.header>
-  );
+
+    {/* Mobile Menu must be outside the header */}
+    <AnimatePresence>
+      {isMobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          className="md:hidden bg-white border-t fixed w-full top-16 z-30"
+        >
+          <div className="flex flex-col gap-4 p-6">
+            <button
+              onClick={() => scrollToSection('services')}
+              className="text-left"
+            >
+              Services
+            </button>
+
+            <button
+              onClick={() => scrollToSection('pricing')}
+              className="text-left"
+            >
+              Pricing
+            </button>
+
+            <button
+              onClick={() => scrollToSection('benefits')}
+              className="text-left"
+            >
+              Benefits
+            </button>
+
+            <button
+              onClick={() => scrollToSection('pricing')}
+              className="bg-quantum-gold text-white px-6 py-3 rounded-lg text-left"
+            >
+              Get Started
+            </button>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </>
+);
 };
+
 
 export default Header;
