@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuronTide Launch Poster</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0A192F 0%, #1E3A5F 50%, #00BCD4 100%);
+            padding: 20px;
+        }
+
+        .poster {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, #0A192F 0%, #1E3A5F 30%, #00BCD4 100%);
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Animated background pattern */
+        .bg-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.1) 1px, transparent 0);
+            background-size: 40px 40px;
+            animation: movePattern 20s linear infinite;
+        }
+
+        @keyframes movePattern {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+
+        /* Floating orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .orb1 {
+            width: 300px;
+            height: 300px;
+            background: #FFD700;
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb2 {
+            width: 250px;
+            height: 250px;
+            background: #00BCD4;
+            bottom: -80px;
+            right: -80px;
+            animation-delay: 2s;
+        }
+
+        .orb3 {
+            width: 200px;
+            height: 200px;
+            background: #FFD700;
+            top: 50%;
+            right: -50px;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 60px 50px;
+            text-align: center;
+        }
+
+        /* Top section */
+        .top-badge {
+            background: rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid #FFD700;
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 0 auto;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(255, 215, 0, 0); }
+        }
+
+        .top-badge-text {
+            color: #FFD700;
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Middle section */
+        .middle {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 72px;
+            font-weight: 900;
+            color: #0A192F;
+            text-shadow: 2px 2px 0 #00BCD4;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .logo-accent {
+            color: #00BCD4;
+            text-shadow: 2px 2px 0 #FFD700;
+        }
+
+        .launch-text {
+            font-size: 56px;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .launch-highlight {
+            color: #FFD700;
+            font-size: 72px;
+            display: block;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700; }
+            50% { text-shadow: 0 0 40px #FFD700, 0 0 80px #FFD700; }
+        }
+
+        .tagline {
+            font-size: 24px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 10px;
+        }
+
+        /* Bottom section */
+        .launch-details {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 30px;
+        }
+
+        .date-time {
+            font-size: 36px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .date-highlight {
+            color: #FFD700;
+            font-size: 48px;
+        }
+
+        .timezone {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .countdown-label {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Sparkles */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        .sparkle1 { top: 15%; left: 10%; animation-delay: 0s; }
+        .sparkle2 { top: 25%; right: 15%; animation-delay: 0.5s; }
+        .sparkle3 { top: 45%; left: 8%; animation-delay: 1s; }
+        .sparkle4 { top: 65%; right: 12%; animation-delay: 1.5s; }
+        .sparkle5 { top: 80%; left: 20%; animation-delay: 2s; }
+        .sparkle6 { top: 35%; right: 8%; animation-delay: 2.5s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content { padding: 40px 30px; }
+            .logo { font-size: 48px; }
+            .launch-text { font-size: 36px; }
+            .launch-highlight { font-size: 48px; }
+            .tagline { font-size: 18px; }
+            .date-time { font-size: 28px; }
+            .date-highlight { font-size: 36px; }
+            .timezone { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <!-- Background elements -->
+        <div class="bg-pattern"></div>
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+
+        <!-- Sparkles -->
+        <div class="sparkle sparkle1"></div>
+        <div class="sparkle sparkle2"></div>
+        <div class="sparkle sparkle3"></div>
+        <div class="sparkle sparkle4"></div>
+        <div class="sparkle sparkle5"></div>
+        <div class="sparkle sparkle6"></div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Top badge -->
+            <div>
+                <div class="top-badge">
+                    <div class="top-badge-text">✨ Official Launch ✨</div>
+                </div>
+            </div>
+
+            <!-- Middle section -->
+            <div class="middle">
+                <div class="logo">
+                    NEURON<span class="logo-accent">TIDE</span>
+                </div>
+
+                <div class="launch-text">
+                    We Are<br>
+                    <span class="launch-highlight">LIVE!</span>
+                </div>
+
+                <div class="tagline">
+                    AI-Powered Digital Solutions<br>
+                    For Modern Businesses
+                </div>
+            </div>
+
+            <!-- Bottom section -->
+            <div class="launch-details">
+                <div class="date-time">
+                    <span class="date-highlight">December 9, 2025</span><br>
+                    9:00 PM
+                </div>
+                <div class="timezone">
+                    EAST AFRICAN TIME (EAT)
+                </div>
+                <div class="countdown-label">
+                    🚀 Join Us as We Take Off! 🚀
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
