@@ -15,7 +15,7 @@ import FloatingButtons from './components/ui/FloatingButtons';
 import ContactUs from './components/sections/ContactUs';
 import BookConsultation from './components/sections/BookConsultation';
 import useAnchorOffsetScroll from './hooks/useAnchorOffsetScroll';
-import { Analytics } from "@vercel/analytics/next"
+
 
 
 export default function App() {
