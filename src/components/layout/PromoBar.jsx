@@ -21,7 +21,7 @@ const PromoPopup = () => {
   }, []);
 
   useEffect(() => {
-    const launchDeadline = new Date('2025-12-21T23:59:59+03:00').getTime();
+    const launchDeadline = new Date('2026-01-08T23:59:59+03:00').getTime();
 
     const calculateTimeLeft = () => {
       const now = new Date().getTime();
@@ -124,7 +124,7 @@ const PromoPopup = () => {
                     <Sparkles className="text-quantum-gold" size={28} />
                   </div>
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-2">
-                    🎉 LAUNCH SALE 🎉
+                    🎉 HOLIDAY SALE 🎉
                   </h2>
                   <p className="text-lg sm:text-xl font-semibold">
                     Save up to <span className="text-quantum-gold font-black text-2xl sm:text-3xl">25%</span> on All Services!

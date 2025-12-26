@@ -85,7 +85,7 @@ const Pricing = () => {
             Transparent Pricing
           </h2>
           <p className="text-xl text-accent-black/70 max-w-2xl mx-auto">
-            No hidden fees. Just results. Launch special pricing ends soon!
+            No hidden fees. Just results. Holiday special pricing ends soon!
           </p>
         </motion.div>
 
