@@ -135,7 +135,7 @@ const handleSubmit = async (e) => {
   rel="noopener noreferrer"
   className="text-accent-black/70 hover:text-data-flow-cyan transition"
 >
-  hello@neurontide.com
+  hello@neurontide.co.ke
 </a>
 
                 </div>
