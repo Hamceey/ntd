@@ -21,7 +21,7 @@ const PromoPopup = () => {
   }, []);
 
   useEffect(() => {
-    const launchDeadline = new Date('2025-12-21T23:59:59+03:00').getTime();
+    const launchDeadline = new Date('2026-01-24T23:59:59+03:00').getTime();
 
     const calculateTimeLeft = () => {
       const now = new Date().getTime();
