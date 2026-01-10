@@ -6,21 +6,21 @@ import { submitNewsletterSignup } from '../../services/api';
 
 
 // Scroll to section function
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      const headerHeight = 80; // Adjust based on your header height
-      const elementPosition = section.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+const scrollToSection = (sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    const headerHeight = 80; // Adjust based on your header height
+    const elementPosition = section.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-    // Close mobile menu if open
-    setIsMobileMenuOpen(false);
-  };
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+  // Close mobile menu if open
+  setIsMobileMenuOpen(false);
+};
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -56,59 +56,74 @@ const Footer = () => {
   return (
     <footer className="bg-deep-tide-blue text-white py-12">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-center md:text-left">
           {/* Branding */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h3 className="text-2xl font-black font-montserrat mb-4">
               NEURON<span className="text-quantum-gold">TIDE</span>
             </h3>
-            <p className="text-white/70">
+            <p className="text-white/70 mb-6">
               Transforming businesses through innovative digital solutions
             </p>
+            {/* Social Icons moved here */}
+            <div className="flex gap-4 mb-2">
+              <a href="https://www.instagram.com/neuron_tide/" target="_blank" rel="noopener noreferrer" className="hover:text-quantum-gold transition">
+                <Instagram size={24} />
+              </a>
+              <a href="https://www.tiktok.com/@neurontide" target="_blank" rel="noopener noreferrer" className="hover:text-quantum-gold transition">
+                <SiTiktok size={24} />
+              </a>
+              <a href="javascript:void(0)" rel="noopener noreferrer" className="hover:text-quantum-gold transition">
+                <Linkedin size={24} />
+              </a>
+            </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="font-bold mb-4">Services</h4>
-            <ul className="space-y-3 text-white/70">
-              <li><a href="#services" className="hover:text-quantum-gold transition">Web Development</a></li>
-              <li><a href="#services" className="hover:text-quantum-gold transition">AI Chatbots</a></li>
-              <li><a href="#services" className="hover:text-quantum-gold transition">Branding</a></li>
-              <li><a href="#services" className="hover:text-quantum-gold transition">Softwares</a></li>
-              <li><a href="#services" className="hover:text-quantum-gold transition">SEO</a></li>
-            </ul>
-          </div>
+          {/* Grid for Services and Company on mobile */}
+          <div className="grid grid-cols-2 lg:grid-cols-2 md:contents gap-8">
+            {/* Services */}
+            <div>
+              <h4 className="font-bold mb-4">Services</h4>
+              <ul className="space-y-3 text-white/70">
+                <li><a href="#services" className="hover:text-quantum-gold transition">Web Development</a></li>
+                <li><a href="#services" className="hover:text-quantum-gold transition">AI Chatbots</a></li>
+                <li><a href="#services" className="hover:text-quantum-gold transition">Branding</a></li>
+                <li><a href="#services" className="hover:text-quantum-gold transition">Softwares</a></li>
+                <li><a href="#services" className="hover:text-quantum-gold transition">SEO</a></li>
+              </ul>
+            </div>
 
-          {/* Company */}
-          <div>
-            <h4 className="font-bold mb-4">Company</h4>
-            <ul className="space-y-2 text-white/70">
-              <li>
-                <a href="javascript:void(0)" className="hover:text-quantum-gold transition">
-                  About Us <span className="text-sm text-white/50 ml-1">(Coming Soon)</span>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)" className="hover:text-quantum-gold transition">
-                  Portfolio <span className="text-sm text-white/50 ml-1">(Coming Soon)</span>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)" className="hover:text-quantum-gold transition">
-                  Testimonials <span className="text-sm text-white/50 ml-1">(Coming Soon)</span>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)" className="hover:text-quantum-gold transition">
-                  Blog <span className="text-sm text-white/50 ml-1">(Coming Soon)</span>
-                </a>
-              </li>
-              <li><a href="#contact" className="hover:text-quantum-gold transition">Contact</a></li>
-            </ul>
+            {/* Company */}
+            <div>
+              <h4 className="font-bold mb-4">Company</h4>
+              <ul className="space-y-2 text-white/70">
+                <li>
+                  <a href="javascript:void(0)" className="hover:text-quantum-gold transition">
+                    About Us <span className="text-xs text-white/50 block md:inline md:ml-1">(Coming Soon)</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)" className="hover:text-quantum-gold transition">
+                    Portfolio <span className="text-xs text-white/50 block md:inline md:ml-1">(Coming Soon)</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)" className="hover:text-quantum-gold transition">
+                    Testimonials <span className="text-xs text-white/50 block md:inline md:ml-1">(Coming Soon)</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)" className="hover:text-quantum-gold transition">
+                    Blog <span className="text-xs text-white/50 block md:inline md:ml-1">(Coming Soon)</span>
+                  </a>
+                </li>
+                <li><a href="#contact" className="hover:text-quantum-gold transition">Contact</a></li>
+              </ul>
+            </div>
           </div>
 
           {/* Newsletter */}
-          <div>
+          <div className="pb-20 md:pb-0">
             <h4 className="font-bold mb-4">Newsletter</h4>
             <p className="text-white/70 mb-4">Get updates on latest trends</p>
 
@@ -132,11 +147,10 @@ const Footer = () => {
               <button
                 type="submit"
                 disabled={status === 'loading' || status === 'success'}
-                className={`px-4 py-2 rounded-lg transition flex items-center justify-center ${
-                  status === 'loading'
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-quantum-gold hover:bg-opacity-90'
-                }`}
+                className={`px-4 py-2 rounded-lg transition flex items-center justify-center ${status === 'loading'
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-quantum-gold hover:bg-opacity-90'
+                  }`}
               >
                 {status === 'loading' ? (
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -148,9 +162,8 @@ const Footer = () => {
 
             {status !== 'idle' && (
               <p
-                className={`mt-2 text-sm ${
-                  status === 'success' ? 'text-green-400' : 'text-red-400'
-                }`}
+                className={`mt-2 text-sm ${status === 'success' ? 'text-green-400' : 'text-red-400'
+                  }`}
               >
                 {message}
               </p>
@@ -158,19 +171,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Social Icons */}
-        <div className="border-t border-white/10 pt-8 text-center text-white/60 space-y-2">
-          <div className="flex justify-center gap-4 mb-2">
-            <a href="https://www.instagram.com/neuron_tide/" target="_blank" rel="noopener noreferrer" className="hover:text-quantum-gold transition">
-              <Instagram size={24} />
-            </a>
-            <a href="https://www.tiktok.com/@neurontide" target="_blank" rel="noopener noreferrer" className="hover:text-quantum-gold transition">
-              <SiTiktok size={24} />
-            </a>
-            <a href="javascript:void(0)"  rel="noopener noreferrer" className="hover:text-quantum-gold transition">
-              <Linkedin size={24} />
-            </a>
-          </div>
+        {/* Copyright */}
+        <div className="border-t border-white/10 pt-8 text-center text-white/60">
           <p>&copy; 2025 Neuron Tide. All rights reserved.</p>
         </div>
       </div>

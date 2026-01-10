@@ -22,7 +22,7 @@ const CTA = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-r from-quantum-gold to-vibrant-green">
+    <section className="py-12 md:py-16 bg-gradient-to-r from-quantum-gold to-vibrant-green">
       <div className="max-w-4xl mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

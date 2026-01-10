@@ -4,26 +4,26 @@ import { ArrowRight } from 'lucide-react';
 
 
 // Scroll to section function
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      const headerHeight = 80; // Adjust based on your header height
-      const elementPosition = section.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+const scrollToSection = (sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    const headerHeight = 80; // Adjust based on your header height
+    const elementPosition = section.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-    // Close mobile menu if open
-    setIsMobileMenuOpen(false);
-  };
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+  // Close mobile menu if open
+  setIsMobileMenuOpen(false);
+};
 
 // Hero Component
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-deep-tide-blue via-deep-tide-blue to-data-flow-cyan">
+    <section className="relative min-h-[60vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-deep-tide-blue via-deep-tide-blue to-data-flow-cyan">
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -32,7 +32,7 @@ const Hero = () => {
         }} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-32 text-center text-white">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-16 md:py-24 text-center text-white">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -47,10 +47,10 @@ const Hero = () => {
             Transform your vision into digital reality with seamless design, development, and AI automation
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center  relative z-20">
-            <button  onClick={() => scrollToSection('contact')} className="bg-quantum-gold text-white px-8 py-4 rounded-lg font-semibold text-lg hover:scale-105 transition flex items-center justify-center gap-2">
-              Start Your Project <ArrowRight size={20} className="pointer-events-none"/>
+            <button onClick={() => scrollToSection('contact')} className="bg-quantum-gold text-white px-8 py-4 rounded-lg font-semibold text-lg hover:scale-105 transition flex items-center justify-center gap-2">
+              Start Your Project <ArrowRight size={20} className="pointer-events-none" />
             </button>
-            <button  onClick={() => scrollToSection('services')} className="bg-white text-deep-tide-blue px-8 py-4 rounded-lg font-semibold text-lg hover:scale-105 transition">
+            <button onClick={() => scrollToSection('services')} className="bg-white text-deep-tide-blue px-8 py-4 rounded-lg font-semibold text-lg hover:scale-105 transition">
               View Our Services
             </button>
           </div>

@@ -38,7 +38,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section id="benefits" className="py-20 bg-gradient-to-br from-deep-tide-blue to-data-flow-cyan text-white">
+    <section id="benefits" className="py-12 md:py-16 bg-gradient-to-br from-deep-tide-blue to-data-flow-cyan text-white">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ const WhyChooseUs = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {reasons.map((reason, index) => (
             <motion.div
               key={index}
@@ -62,13 +62,13 @@ const WhyChooseUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white/10 backdrop-blur-sm p-8 rounded-xl hover:bg-white/20 transition"
+              className="bg-white/10 backdrop-blur-sm p-5 md:p-8 rounded-xl hover:bg-white/20 transition flex flex-col items-center text-center h-full"
             >
-              <reason.icon size={48} className="text-quantum-gold mb-4" />
-              <h3 className="text-2xl font-bold font-montserrat mb-3">
+              <reason.icon className="text-quantum-gold mb-3 w-10 h-10 md:w-12 md:h-12" />
+              <h3 className="text-base md:text-2xl font-bold font-montserrat mb-2">
                 {reason.title}
               </h3>
-              <p className="text-white/80">
+              <p className="text-xs md:text-base text-white/80 line-clamp-4 md:line-clamp-none">
                 {reason.description}
               </p>
             </motion.div>

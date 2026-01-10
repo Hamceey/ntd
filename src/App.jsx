@@ -19,25 +19,25 @@ import { Analytics } from "@vercel/analytics/react";
 
 
 export default function App() {
-      useAnchorOffsetScroll(100, 150);
+  useAnchorOffsetScroll(100, 150);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <PromoPopup />
       <Header />
       <Hero />
       <Services />
-{/*       <VideoShowcase /> */}
+      {/*       <VideoShowcase /> */}
       <Pricing />
       <WhyChooseUs />
-{/*       <Portfolio /> */}
-{/*       <Testimonials /> */}
+      {/*       <Portfolio /> */}
+      {/*       <Testimonials /> */}
       <ContactUs />
       <Stats />
       <CTA />
       <Footer />
       <FloatingButtons />
-        <Analytics />
+      <Analytics />
     </div>
   );
 }

@@ -6,7 +6,7 @@ import { submitContactForm } from '../../services/api'; // adjust path if needed
 
 
 const ContactUs = () => {
-    const [openConsultation, setOpenConsultation] = useState(false);
+  const [openConsultation, setOpenConsultation] = useState(false);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -41,62 +41,62 @@ const ContactUs = () => {
   };
 
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  // Validation
-  if (!formData.name || !formData.email || !formData.message) {
-    setStatus('error');
-    setErrorMessage('Please fill in all required fields');
-    setTimeout(() => setStatus('idle'), 3000);
-    return;
-  }
+    // Validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setStatus('error');
+      setErrorMessage('Please fill in all required fields');
+      setTimeout(() => setStatus('idle'), 3000);
+      return;
+    }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(formData.email)) {
-    setStatus('error');
-    setErrorMessage('Please enter a valid email address');
-    setTimeout(() => setStatus('idle'), 3000);
-    return;
-  }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setStatus('error');
+      setErrorMessage('Please enter a valid email address');
+      setTimeout(() => setStatus('idle'), 3000);
+      return;
+    }
 
-  setStatus('loading');
+    setStatus('loading');
 
-  try {
-    await submitContactForm(formData); // send to Google Apps Script
+    try {
+      await submitContactForm(formData); // send to Google Apps Script
 
-    setStatus('success');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      service: '',
-      message: ''
-    });
-    setTimeout(() => setStatus('idle'), 5000);
-  } catch (err) {
-    console.error('Contact form error:', err);
-    setStatus('error');
-    setErrorMessage('Something went wrong. Please try again or contact us directly.');
-    setTimeout(() => setStatus('idle'), 5000);
-  }
-};
+      setStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        service: '',
+        message: ''
+      });
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (err) {
+      console.error('Contact form error:', err);
+      setStatus('error');
+      setErrorMessage('Something went wrong. Please try again or contact us directly.');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
+  };
 
   return (
-    <section id="contact" className="py-20 bg-neutral-gray">
+    <section id="contact" className="py-12 md:py-16 bg-neutral-gray">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-black font-montserrat text-deep-tide-blue mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-montserrat text-deep-tide-blue mb-4">
             Let's Build Something Amazing
           </h2>
-          <p className="text-xl text-accent-black/70 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-accent-black/70 max-w-2xl mx-auto">
             Ready to transform your digital presence? Get in touch and let's discuss your project.
           </p>
         </motion.div>
@@ -130,13 +130,13 @@ const handleSubmit = async (e) => {
                 <div>
                   <h4 className="font-bold text-deep-tide-blue mb-1">Email Us</h4>
                   <a
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=neurontide@gmail.com"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-accent-black/70 hover:text-data-flow-cyan transition"
->
-  hello@neurontide.co.ke
-</a>
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=neurontide@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent-black/70 hover:text-data-flow-cyan transition"
+                  >
+                    hello@neurontide.co.ke
+                  </a>
 
                 </div>
               </motion.div>
@@ -315,11 +315,10 @@ const handleSubmit = async (e) => {
                 disabled={status === 'loading' || status === 'success'}
                 whileHover={{ scale: status === 'loading' ? 1 : 1.02 }}
                 whileTap={{ scale: status === 'loading' ? 1 : 0.98 }}
-                className={`w-full py-4 rounded-lg font-bold text-white flex items-center justify-center gap-2 transition ${
-                  status === 'loading' || status === 'success'
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-quantum-gold hover:bg-opacity-90'
-                }`}
+                className={`w-full py-4 rounded-lg font-bold text-white flex items-center justify-center gap-2 transition ${status === 'loading' || status === 'success'
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-quantum-gold hover:bg-opacity-90'
+                  }`}
               >
                 {status === 'loading' ? (
                   <>
@@ -383,7 +382,7 @@ const handleSubmit = async (e) => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-              onClick={() => setOpenConsultation(true)}
+            onClick={() => setOpenConsultation(true)}
 
             className="bg-quantum-gold text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-opacity-90 transition"
           >
@@ -394,25 +393,25 @@ const handleSubmit = async (e) => {
 
 
       {openConsultation && (
-  <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
 
-    {/* Modal Container */}
-    <div className="relative w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-y-auto max-h-[90vh]">
+          {/* Modal Container */}
+          <div className="relative w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-y-auto max-h-[90vh]">
 
-      {/* Close Button */}
-      <button
-        onClick={() => setOpenConsultation(false)}
-        className="absolute top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-red-600 transition"
-      >
-        Close
-      </button>
+            {/* Close Button */}
+            <button
+              onClick={() => setOpenConsultation(false)}
+              className="absolute top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-red-600 transition"
+            >
+              Close
+            </button>
 
-      {/* Consultation Form */}
-      <BookConsultation />
+            {/* Consultation Form */}
+            <BookConsultation />
 
-    </div>
-  </div>
-)}
+          </div>
+        </div>
+      )}
 
     </section>
   );

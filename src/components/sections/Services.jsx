@@ -62,7 +62,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-12 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -78,7 +78,7 @@ const Services = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -87,16 +87,15 @@ const Services = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-neutral-gray p-8 rounded-xl hover:shadow-xl transition cursor-pointer group"
+              className="bg-neutral-gray p-5 md:p-8 rounded-xl hover:shadow-xl transition cursor-pointer group flex flex-col items-center text-center h-full"
             >
               <service.icon
-                size={48}
-                className={`text-${service.color} mb-4 group-hover:scale-110 transition`}
+                className={`text-${service.color} mb-3 group-hover:scale-110 transition w-10 h-10 md:w-12 md:h-12`}
               />
-              <h3 className="text-2xl font-bold font-montserrat text-deep-tide-blue mb-3">
+              <h3 className="text-base md:text-2xl font-bold font-montserrat text-deep-tide-blue mb-2">
                 {service.title}
               </h3>
-              <p className="text-accent-black/70">
+              <p className="text-xs md:text-base text-accent-black/70 line-clamp-4 md:line-clamp-none">
                 {service.description}
               </p>
             </motion.div>
